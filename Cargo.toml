@@ -1,6 +1,6 @@
 [workspace]
 members=[
-    "hw1",
-    "hw2",
+    "hw1/FizzBuzz",
+    "hw2/task",
     "rustbook"
 ]
