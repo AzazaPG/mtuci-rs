@@ -11,24 +11,36 @@
 
 fn main() {}
 
-struct Rect { top_left: (f32, f32), width: f32 }
+struct Rect {
+    x: f32,
+    y: f32,
+    width: f32,
+}
 
 impl Rect {
-    fn new(top_left: (f32, f32), width: f32) -> Self { 
-        Rect { top_left, width } 
+    fn new(top_left: (f32, f32), width: f32) -> Self {
+        let (x, y) = top_left;
+        Rect {
+            x,
+            y,
+            width,
+        }
     }
 
     fn bottom_right(&self) -> (f32, f32) {
-        let bottom_right_0 = self.top_left.0 + self.width;
-        let bottom_right_1 =  self.top_left.1 - self.width;
-        (bottom_right_0, bottom_right_1)
+        let b_r_x = self.x + self.width;
+        let b_r_y = self.y - self.width;
+        (b_r_x, b_r_y)
     }
 
-    fn area(&self) -> f32 { self.width * self.width }
+    fn area(&self) -> f32 {
+        self.width.powi(2)
+    }
 
-    fn perimeter(&self) -> f32 { 4. * self.width }
+    fn perimeter(&self) -> f32 {
+        self.width * 4.
+    }
 }
-
 
 
 // ----> TESTS
@@ -40,7 +52,7 @@ mod tests {
     fn bottom_right() {
         let rect = Rect::new((1., 2.), 5.);
 
-        assert_eq!((6., 7.), rect.bottom_right())
+        assert_eq!((6., -3.), rect.bottom_right())
     }
 
     #[test]
