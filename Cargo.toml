@@ -1,0 +1,6 @@
+[workspace]
+members=[
+    "hw1",
+    "hw2",
+    "rustbook"
+]
