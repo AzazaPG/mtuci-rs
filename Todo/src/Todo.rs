@@ -1,1 +1,1 @@
-rm {Todo.rs}
+rm Todo.rs
