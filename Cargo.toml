@@ -1,4 +1,5 @@
 [workspace]
 members=[
     "hw2/task"
+    "hw_4"
 ]
